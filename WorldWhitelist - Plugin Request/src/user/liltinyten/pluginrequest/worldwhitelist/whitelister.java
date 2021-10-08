@@ -21,7 +21,7 @@ public class whitelister implements CommandExecutor {
 				if (args[0].equalsIgnoreCase("on")) {
 					// toggle on code here
 					if (sender.hasPermission("wwhitelist.on")) {
-						// checks if it's /wwhitelist on
+						// Checks if the toggle status is on.
 						if (Main.getConfigFile().contains(args[1] + ".enabled")) {
 							if (Main.getConfigFile().getBoolean(args[1] + ".enabled") == false) {
 								sender.sendMessage(ChatColor.GREEN +"Enabled WorldWhitelist for " + args[1]);
@@ -45,7 +45,7 @@ public class whitelister implements CommandExecutor {
 				if (args[0].equalsIgnoreCase("off")) {
 					// toggle off code here
 					if (sender.hasPermission("wwhitelist.off")) {
-						// checks if it's /wwhitelist off
+						// Checks if the toggle status in off.
 						if (Main.getConfigFile().contains(args[1] + ".enabled")) {
 						if (Main.getConfigFile().getBoolean(args[1] + ".enabled") == true) {
 							sender.sendMessage(ChatColor.GREEN +"Disabled WorldWhitelist for " + args[1]);
@@ -71,13 +71,13 @@ public class whitelister implements CommandExecutor {
 				sender.sendMessage(ChatColor.YELLOW+"/wwhitelist add/remove player world - Allows you to add and remove players from a world whitelist" + "\n" + "/wwhitelist on/off world - Toggles WorldWhitelist for a world");
 			}
 			
-			// for add and remove
+			// Checks the number of command arguments.
 			if (args.length == 3) {
 				String worldname = args[2];
 				String playername = args[1];
 				
 				if (args[0].equalsIgnoreCase("add")) {
-					// add code here
+					// Code for adding players.
 					if (sender.hasPermission("wwhitelist.add")) {
 						if (Main.getConfigFile().contains(worldname + ".players")) {
 							List<String> players = Main.getConfigFile().getStringList(worldname + ".players"); 
@@ -107,7 +107,7 @@ public class whitelister implements CommandExecutor {
 					
 				}
 				if (args[0].equalsIgnoreCase("remove")) {
-					// remove code here
+					// Code for removing players.
 					if (sender.hasPermission("wwhitelist.remove")) {
 						if (Main.getConfigFile().contains(worldname + ".players")) {
 							List<String> players = Main.getConfigFile().getStringList(worldname + ".players"); 
