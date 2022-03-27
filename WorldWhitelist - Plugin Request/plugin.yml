@@ -1,7 +1,6 @@
 main: user.liltinyten.pluginrequest.worldwhitelist.Main
 name: WorldWhitelist
-version: 1.14
-api-version: 1.16
+version: 1.15
 author: liltinyten
 description: Allows you to whitelist worlds!
 commands:
