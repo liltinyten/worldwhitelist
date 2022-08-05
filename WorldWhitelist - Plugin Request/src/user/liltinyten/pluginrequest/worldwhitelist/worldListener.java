@@ -10,32 +10,27 @@ public class worldListener implements Listener {
 
 	@EventHandler
 	public void onWorld(PlayerChangedWorldEvent e) {
-
+	
 		if (Main.getConfigFile().contains(e.getPlayer().getWorld().getName() + ".enabled")) {
 			if (Main.getConfigFile().getBoolean(e.getPlayer().getWorld().getName() + ".enabled") == true) {
 				String worldname = e.getPlayer().getWorld().getName();
-
-
-				if ((Main.getConfigFile().contains(e.getPlayer().getWorld().getName() + ".players"))) {
-					if (!(Main.getConfigFile().getStringList(e.getPlayer().getWorld().getName() + ".players").contains(e.getPlayer().getUniqueId().toString()) 
-							|| e.getPlayer().hasPermission("wwhitelist.bypass") 
-							|| e.getPlayer().isOp()
-							|| e.getPlayer().hasPermission("wwhitelist." + worldname)
-							)) {
-
+				
+				
+				if ((Main.getConfigFile().contains(e.getPlayer().getWorld().getName() + ".players") || e.getPlayer().hasPermission("wwhitelist.bypass") || e.getPlayer().hasPermission("wwhitelist." + worldname) )) {
+					if (!(Main.getConfigFile().getStringList(e.getPlayer().getWorld().getName() + ".players").contains(e.getPlayer().getUniqueId().toString()) || e.getPlayer().hasPermission("wwhitelist.bypass") || e.getPlayer().isOp())) {
 						e.getPlayer().teleport(e.getFrom().getSpawnLocation());
 						e.getPlayer().sendMessage(ChatColor.RED + "You are not whitelisted on this world!");
 					}
-
-				} else {
-					e.getPlayer().teleport(e.getFrom().getSpawnLocation());
-					e.getPlayer().sendMessage(ChatColor.RED + "You are not whitelisted on this world!");
-				}
+				
+				   } else {
+					   e.getPlayer().teleport(e.getFrom().getSpawnLocation());
+					   e.getPlayer().sendMessage(ChatColor.RED + "You are not whitelisted on this world!");
+				   }
 			}
 		}
-
-
-
-
+			
+		
+		
+		
 	}
 }
