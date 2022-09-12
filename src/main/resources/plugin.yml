@@ -1,0 +1,9 @@
+name: WorldWhitelist
+version: '${project.version}'
+main: user.liltinyten.plugins.WorldWhitelist
+api-version: 1.17
+authors: [ liltinyten ]
+description: Whitelist for your worlds!
+commands:
+  wwhitelist:
+    description: Whitelist Worlds!
